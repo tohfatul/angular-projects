@@ -1,0 +1,23 @@
+
+<h3>This is the message from child- {{message}}</h3>
+
+<app-test (childEvent)="message = $event" [parentData]="name"></app-test>
+
+<button (click)="onGreetingClicked($event)">Show greeting</button>
+{{greeting}}
+<input type="text" [(ngModel)]="userName">
+
+{{userName}}
+
+<hr>
+<app-employee-list-detail></app-employee-list-detail>
+<hr>
+<app-employee-list></app-employee-list>
+
+<hr>
+
+<nav>
+    <a routerLink="/departments" routerLinkActive="active">Departments</a> |
+    <a routerLink="/employees" routerLinkActive="active">Employees</a>
+</nav>
+<router-outlet></router-outlet>
