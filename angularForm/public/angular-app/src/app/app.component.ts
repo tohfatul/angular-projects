@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { User } from 'models/User';
+import { EnrollmentService } from './enrollment.service';
 
 @Component({
   selector: 'app-root',
@@ -13,7 +14,7 @@ export class AppComponent implements OnInit{
 
   topicHasError=true;
 
-  constructor(){}
+  constructor(private _enrollmentService: EnrollmentService){}
 
   ngOnInit(): void {
     
@@ -30,6 +31,11 @@ export class AppComponent implements OnInit{
   }
 
   onSubmit(){
-    
+    this._enrollmentService.enroll(this.userModel)
+    .subscribe(
+      data=> console.log('success!', data),
+      error=> console.log('error', error)
+      
+    )
   }
 }
